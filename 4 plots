@@ -1,0 +1,53 @@
+# Author: Marquis Jones
+# Date: November 6, 2024
+# CTEC 298-101 Fall 2024
+# Multiplot example using Matplotlib
+
+# Step 1: Import necessary libraries
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Step 2: Create some data for demonstration
+x = np.linspace(0, 10, 100)  # X-axis data (from 0 to 10 with 100 points)
+y1 = np.sin(x)  # y1 data: Sine function of x
+y2 = np.cos(x)  # y2 data: Cosine function of x
+y3 = np.tan(x)  # y3 data: Tangent function of x
+
+# Step 3: Create a figure and multiple subplots (2 rows, 2 columns)
+fig, axs = plt.subplots(2, 2, figsize=(10, 8))  # 2x2 grid for subplots
+
+# Step 4: Plot data in each subplot
+# First subplot: Sine wave
+axs[0, 0].plot(x, y1, 'r-', label='sin(x)')  # Red line for sine wave
+axs[0, 0].set_title('Sine Wave')  # Set title for the first plot
+axs[0, 0].set_xlabel('X-axis')  # Label for x-axis
+axs[0, 0].set_ylabel('Y-axis')  # Label for y-axis
+axs[0, 0].legend()  # Add a legend
+
+# Second subplot: Cosine wave
+axs[0, 1].plot(x, y2, 'g-', label='cos(x)')  # Green line for cosine wave
+axs[0, 1].set_title('Cosine Wave')  # Set title for the second plot
+axs[0, 1].set_xlabel('X-axis')  # Label for x-axis
+axs[0, 1].set_ylabel('Y-axis')  # Label for y-axis
+axs[0, 1].legend()  # Add a legend
+
+# Third subplot: Tangent wave (with a limit on y-axis due to the steep nature of tan(x))
+axs[1, 0].plot(x, y3, 'b-', label='tan(x)')  # Blue line for tangent wave
+axs[1, 0].set_title('Tangent Wave')  # Set title for the third plot
+axs[1, 0].set_xlabel('X-axis')  # Label for x-axis
+axs[1, 0].set_ylabel('Y-axis')  # Label for y-axis
+axs[1, 0].set_ylim(-10, 10)  # Limit y-axis values to avoid extreme values of tan(x)
+axs[1, 0].legend()  # Add a legend
+
+# Fourth subplot: Combined plot (sin(x) + cos(x))
+axs[1, 1].plot(x, y1 + y2, 'm-', label='sin(x) + cos(x)')  # Magenta line for combined plot
+axs[1, 1].set_title('sin(x) + cos(x)')  # Set title for the fourth plot
+axs[1, 1].set_xlabel('X-axis')  # Label for x-axis
+axs[1, 1].set_ylabel('Y-axis')  # Label for y-axis
+axs[1, 1].legend()  # Add a legend
+
+# Step 5: Adjust layout for better spacing
+plt.tight_layout()  # This makes sure the subplots do not overlap
+
+# Step 6: Show the plot
+plt.show()
