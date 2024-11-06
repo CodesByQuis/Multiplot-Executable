@@ -1,0 +1,43 @@
+# Author: Marquis Jones
+# Date: 11/06/2024
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate data for plots
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+y3 = np.tan(x)
+
+# Create a figure and multiple subplots (3 rows, 1 column)
+fig, axs = plt.subplots(3, 1, figsize=(8, 8))
+
+# Plot 1: Sine Wave
+axs[0].plot(x, y1, label='sin(x)', color='b')
+axs[0].set_title('Plot 1: Sine Wave')  # Title for Plot 1
+axs[0].set_xlabel('x')
+axs[0].set_ylabel('sin(x)')
+axs[0].legend()
+
+# Plot 2: Cosine Wave
+axs[1].plot(x, y2, label='cos(x)', color='r')
+axs[1].set_title('Plot 2: Cosine Wave')  # Title for Plot 2
+axs[1].set_xlabel('x')
+axs[1].set_ylabel('cos(x)')
+axs[1].legend()
+
+# Plot 3: Tangent Wave
+# Limiting y-values for the tangent to avoid extreme values
+axs[2].plot(x, y3, label='tan(x)', color='g')
+axs[2].set_title('Plot 3: Tangent Wave')  # Title for Plot 3
+axs[2].set_xlabel('x')
+axs[2].set_ylabel('tan(x)')
+axs[2].set_ylim(-10, 10)  # Set y-axis limits to avoid extreme values
+axs[2].legend()
+
+# Adjust layout for better spacing between plots
+plt.tight_layout()
+
+# Display the plots
+plt.show()
